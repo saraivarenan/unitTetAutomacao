@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class testeValidaIdade {
+public class testUnit {
 
     Simulacao sim = new Simulacao();
 
@@ -45,7 +45,7 @@ public class testeValidaIdade {
 
     }
     @Test
-    public void ValidarAnoVeiculoOKTipoVeiculoOK(){
+    public void validarAnoVeiculoOKTipoVeiculoOK(){
         //arrange
         int tipoVeiculo =1;
         int anocarro =2000;
@@ -57,7 +57,7 @@ public class testeValidaIdade {
 
     }
     @Test
-    public void ValidarCarroValidoEAnoInvalido(){
+    public void validarCarroValidoEAnoInvalido(){
         //arrange
         int tipoVeiculo =1;
         int anocarro =1999;
@@ -69,7 +69,7 @@ public class testeValidaIdade {
 
     }
     @Test
-    public void ValidarMotoValidoEAnoInvalido(){
+    public void validarMotoValidoEAnoInvalido(){
         //arrange
         int tipoVeiculo =2;
         int anocarro =1999;
@@ -81,7 +81,7 @@ public class testeValidaIdade {
 
     }
     @Test
-    public void ValidarMotoValidoEAnoValido(){
+    public void validarMotoValidoEAnoValido(){
         //arrange
         int tipoVeiculo =2;
         int anocarro =2001;
