@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class testUnit {
-
+    // Validar carro para financiamento
     Simulacao sim = new Simulacao();
 
     @Test()
