@@ -1,10 +1,15 @@
 import org.junit.Assert;
 import org.junit.Test;
+import org.mock
+import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(SimulacaoMock.class)
 public class testUnit {
     // Validar carro para financiamento
     Simulacao sim = new Simulacao();
@@ -34,7 +39,7 @@ public class testUnit {
         Assert.assertTrue("Cliente Maior de IDade",idadeOk ==false);
     }
     @Test
-    //cobertuda de comando
+
     public void validarAnoCarro(){
         //arrange
         int anoCarro =2001;
@@ -92,6 +97,22 @@ public class testUnit {
         Assert.assertTrue(validarAnoVeic == esperado );
 
     }
+    @Test
+    public void validarAnoCarroMock() throws Exception {
+        //arrange
+        SimulacaoMock simuMock = new SimulacaoMock();
+        int anoAtual = 2000;
+        boolean retornoEsperado= true;
+        final String METHOD = "getScore";
+
+        SimulacaoMock spy = PowerMockito.spy(simuMock);
+        PowerMockito.when(spy, METHOD).thenReturn((boolean)true);
+
+        //act
+        retornoEsperado = spy.validarScoreCliente(1);
+
+    }
+
 
 
 }
