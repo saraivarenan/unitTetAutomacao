@@ -21,7 +21,6 @@
             <version>2.0.2-beta</version>
             <scope>test</scope>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.powermock/powermock-mockito-release-full -->
     <dependency>
         <groupId>org.powermock</groupId>
@@ -31,6 +30,4 @@
         <scope>test</scope>
     </dependency>
     </dependencies>
-
-
 </project>

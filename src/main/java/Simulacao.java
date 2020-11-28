@@ -9,19 +9,11 @@ public class Simulacao {
 
     public boolean validarAnoCarro(int ano){
         int anolimite =2000;
-
-        //     if( ano >= anolimite){
-        //       return  true;
-        // }
-        //else{
-        //    return  false;
-        //}
         return (ano >= anolimite);
     }
     public Boolean validartipoVeiculo(int tipoVeiculo, int anocarro) {
         //1 MOTO
         //2 CARRO
-
         if (validarAnoCarro(anocarro) ==true){
             if(tipoVeiculo == 1){
                 return true;
@@ -42,10 +34,7 @@ public class Simulacao {
         idade += cHoje.get(Calendar.YEAR) - cData.get(Calendar.YEAR);
         return idade;
     }
-
-
     public boolean validarClienteMaiorIdade(String data) throws ParseException {
-
         Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(data);
         int idadeMinima =18;
         int idadeCliente = getIdade(date1);
@@ -53,6 +42,14 @@ public class Simulacao {
             return  true;
         }else {
             return false;
+        }
+    }
+    public String validarvalorVeiculoSimunacao(int valorVeic){
+        if(valorVeic>=5000){
+            return "Valor permitido pra financiamento";
+        }
+        else{
+            return "Valor não permitido pra financiamento";
         }
     }
 }

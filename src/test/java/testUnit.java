@@ -128,6 +128,28 @@ public class testUnit {
         Assert.assertEquals(retornoAtual,retornoEsperado);
         PowerMockito.verifyPrivate(spy, Mockito.times(1)).invoke(METHOD);
     }
+    @Test
+    public void validarValorVeiculoPermitido(){
+        //arrange
+        int valorCarro= 5000;
+        String mensagemEsperada ="Valor permitido pra financiamento";
+        String mensagemAtual;
+        //act
+        mensagemAtual = sim.validarvalorVeiculoSimunacao(valorCarro);
+        //assert
+        Assert.assertEquals(mensagemEsperada,mensagemAtual);
 
+    }
+    @Test
+    public void validarValorVeiculoNaoPermitido(){
+        //arrange
+        int valorCarro= 4999;
+        String mensagemEsperada ="Valor não permitido pra financiamento";
+        String mensagemAtual;
+        //act
+        mensagemAtual = sim.validarvalorVeiculoSimunacao(valorCarro);
+        //assert
+        Assert.assertEquals(mensagemEsperada,mensagemAtual);
 
+    }
 }
