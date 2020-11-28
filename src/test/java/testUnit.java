@@ -101,24 +101,40 @@ public class testUnit {
     public void validarScoreClienteSucesso() throws Exception {
         //arrange
         SimulacaoMock simuMock = new SimulacaoMock();
-        boolean retornoAtual = true;
-        boolean retornoEsperado= true;
+        boolean retornoAtual = false;
+        boolean retornoEsperado = true;
         final String METHOD = "getValidaScore";
 
         SimulacaoMock spy = PowerMockito.spy(simuMock);
         PowerMockito.when(spy, METHOD).thenReturn((boolean)true);
 
         //act
-        retornoAtual = spy.validarScoreCliente(0);
+        retornoAtual = spy.validarScoreCliente(1);
 
         //assert
         Assert.assertEquals(retornoAtual,retornoEsperado);
 
         PowerMockito.verifyPrivate(spy, Mockito.times(1)).invoke(METHOD);
-
-
     }
+    @Test
+    public void validarScoreClienteInsucesso() throws Exception {
+        //arrange
+        SimulacaoMock simuMock = new SimulacaoMock();
+        boolean retornoAtual = true;
+        boolean retornoEsperado = false;
+        final String METHOD = "getValidaScore";
 
+        SimulacaoMock spy = PowerMockito.spy(simuMock);
+        PowerMockito.when(spy, METHOD).thenReturn((boolean)false);
+
+        //act
+        retornoAtual = spy.validarScoreCliente(1);
+
+        //assert
+        Assert.assertEquals(retornoAtual,retornoEsperado);
+
+        PowerMockito.verifyPrivate(spy, Mockito.times(1)).invoke(METHOD);
+    }
 
 
 }
