@@ -1,6 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
-import org.mock
+import org.mockito.Mockito;
 import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -98,18 +98,24 @@ public class testUnit {
 
     }
     @Test
-    public void validarAnoCarroMock() throws Exception {
+    public void validarScoreClienteSucesso() throws Exception {
         //arrange
         SimulacaoMock simuMock = new SimulacaoMock();
-        int anoAtual = 2000;
+        boolean retornoAtual = true;
         boolean retornoEsperado= true;
-        final String METHOD = "getScore";
+        final String METHOD = "getValidaScore";
 
         SimulacaoMock spy = PowerMockito.spy(simuMock);
         PowerMockito.when(spy, METHOD).thenReturn((boolean)true);
 
         //act
-        retornoEsperado = spy.validarScoreCliente(1);
+        retornoAtual = spy.validarScoreCliente(0);
+
+        //assert
+        Assert.assertEquals(retornoAtual,retornoEsperado);
+
+        PowerMockito.verifyPrivate(spy, Mockito.times(1)).invoke(METHOD);
+
 
     }
 
