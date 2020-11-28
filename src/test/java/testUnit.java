@@ -107,13 +107,10 @@ public class testUnit {
 
         SimulacaoMock spy = PowerMockito.spy(simuMock);
         PowerMockito.when(spy, METHOD).thenReturn((boolean)true);
-
         //act
         retornoAtual = spy.validarScoreCliente(1);
-
         //assert
         Assert.assertEquals(retornoAtual,retornoEsperado);
-
         PowerMockito.verifyPrivate(spy, Mockito.times(1)).invoke(METHOD);
     }
     @Test
@@ -123,16 +120,12 @@ public class testUnit {
         boolean retornoAtual = true;
         boolean retornoEsperado = false;
         final String METHOD = "getValidaScore";
-
         SimulacaoMock spy = PowerMockito.spy(simuMock);
         PowerMockito.when(spy, METHOD).thenReturn((boolean)false);
-
         //act
         retornoAtual = spy.validarScoreCliente(1);
-
         //assert
         Assert.assertEquals(retornoAtual,retornoEsperado);
-
         PowerMockito.verifyPrivate(spy, Mockito.times(1)).invoke(METHOD);
     }
 
